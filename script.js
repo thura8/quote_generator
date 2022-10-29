@@ -16,7 +16,7 @@ let dataShow = () => {
   quoteContainer.hidden = false;
 };
 
-const randomQuote = () => {
+const randomAndDisplay = () => {
   loading();
   let quote = quoteData[Math.floor(Math.random() * quoteData.length)];
   quoteHTML.textContent = quote.text;
@@ -41,7 +41,7 @@ async function quoteGenerator() {
   try {
     const response = await fetch(apiURL);
     quoteData = await response.json();
-    randomQuote();
+    randomAndDisplay();
   } catch (error) {}
 }
 
